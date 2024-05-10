@@ -18,5 +18,9 @@ namespace CQRSProject.Controllers
 
             return View(values);
         }
+        public IActionResult Edit()
+        {
+            return View();
+        }
     }
 }
