@@ -18,7 +18,7 @@ namespace CQRSProject.CQRS.Handlers.ProductHandlers
             values.ProductName = command.ProductName;
             values.ProductPrice = command.ProductPrice;
 
-            _context.Update(values);
+            _context.Products.Update(values);
             _context.SaveChanges();
         }
     }
