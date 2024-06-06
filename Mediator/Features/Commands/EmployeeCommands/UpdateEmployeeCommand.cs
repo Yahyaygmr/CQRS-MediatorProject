@@ -1,6 +1,8 @@
-﻿namespace CQRSProject.Mediator.Features.Results.EmployeeResults
+﻿using MediatR;
+
+namespace CQRSProject.Mediator.Features.Commands.EmployeeCommands
 {
-    public class GetEmployeeByIdQueryResult
+    public class UpdateEmployeeCommand : IRequest
     {
         public int EmployeeId { get; set; }
         public string Name { get; set; }

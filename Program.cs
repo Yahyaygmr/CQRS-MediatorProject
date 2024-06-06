@@ -1,6 +1,7 @@
 using CQRSProject.CQRS.Handlers;
 using CQRSProject.CQRS.Handlers.ProductHandlers;
 using CQRSProject.DAL;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,9 @@ builder.Services.AddScoped<GetProductByIdQueryHandler>();
 builder.Services.AddScoped<CreateProductCommandHandler>();
 builder.Services.AddScoped<RemoveProductCommandHandler>();
 builder.Services.AddScoped<UpdateProductCommandHandler>();
+
+builder.Services.AddMediatR(config =>
+config.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
 
 var app = builder.Build();
 

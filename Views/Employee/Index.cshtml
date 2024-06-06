@@ -1,0 +1,40 @@
+﻿@model IEnumerable<CQRSProject.Mediator.Features.Results.EmployeeResults.GetEmployeeQueryResult>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Emloyee List</h1>
+
+<p>
+    <a asp-action="CreateEmployee">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Adı Soyadı</th>
+            <th>Maaş</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.EmployeeId</td>
+                <td>
+                    @item.Name @item.Surmane
+                </td>
+                <td>@item.Salary</td>
+                <td>
+                    <a asp-action="EditEmployee" asp-route-id="@item.EmployeeId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.EmployeeId">Details</a> |
+                    <a asp-action="RemoveEmployee" asp-route-id="@item.EmployeeId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
